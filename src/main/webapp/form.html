@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<title>Form</title>
+<meta charset="utf-8">
+<body>
+
+<H1>HTML Forms</H1>
+
+<h3><p>자기를 소개해보세요~~</p></h3>
+<div>
+  <form name="forml" action="form_ok.jsp" onsubmit="return validateForm()" method="post">
+    <fieldset style="width: 600px;margin: 5px">
+      <legend>인적사항 입력</legend>
+      이름: <input type="text" name="writer"><br>
+      핸드폰 번호: <input type="tel" name="phone"><br>
+      성별: <input type="radio" id="gender1" name="gender" value="M">남
+      <input type="radio" id="gender2" name="gender" value="W">여<br>
+      생일: <input type="date" min='1980' max='2022-10-12' name="birthday"><br>
+      사는 지역: <select name="city">
+      <optgroup label="대한민국">
+        <option value="서울">서울</option>
+        <option value="경기">경기</option>
+        <option value="강원">강원</option>
+        <option value="대전">대전</option>
+        <option value="대구">대구</option>
+        <option value="부산">부산</option>
+        <option value="세종">세종</option>
+        <option value="울산">울산</option>
+        <option value="포항">포항</option>
+        <option value="제주">제주</option>
+      </optgroup>
+    </select><br>
+      전공: <input type="text" id="" name="major"><br>
+      학년: <input type="radio" id="freshman" name="grade" value="1학년">1학년
+      <input type="radio" id="sophomore" name="grade" value="2학년">2학년
+      <input type="radio" id="junior" name="grade" value="3학년">3학년
+      <input type="radio" id="senior" name="grade" value="4학년">4학년<br>
+      rc: <input type="checkbox" id="RC1" name="RC" value="카이퍼">카이퍼
+      <input type="checkbox" id="RC2" name="RC" value="손양원">손양원
+      <input type="checkbox" id="RC3" name="RC" value="장기려">장기려
+      <input type="checkbox" id="RC4" name="RC" value="카마이클">카마이클
+      <input type="checkbox" id="RC5" name="RC" value="열송학사">열송학사
+      <input type="checkbox" id="RC6" name="RC" value="토레이">토레이<br>
+    </fieldset>
+    자기소개: <br><textarea name='introduce' cols='20' rows='5'></textarea><br>
+    이번 학기 다짐: <br><textarea name='promise' cols='20' rows='5'></textarea>
+
+    <input type="submit" value="저장">
+    <input type="reset" value="취소">
+  </form>
+</div>
+
+</body>
+</html>
+
+<script>
+  function validateForm() {
+    var subject = document.forml.subject;
+    if(subject.value == ""){
+      alert("제목을 입력하세요");
+      subject.focus();
+      return false;
+    }
+    var writer = document.forml.writer.value;
+    if(writer.value == ""){
+      alert("이름을 입력하세요");
+      subject.focus();
+      return false;
+    }
+    if(writer.length < 2){
+      alert("이름은 2글자 이상 입력하세요");
+      writer.focus();
+      return false;
+    }
+  }
+</script>
